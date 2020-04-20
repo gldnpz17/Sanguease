@@ -8,6 +8,8 @@ namespace DataAccessLibrary.Models
 {
     class BloodDonorInfo
     {
+        [Required]
+        [Column(TypeName = "NVARCHAR(128)")]
         public string Id { get; set; }
 
         [Required]
