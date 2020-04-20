@@ -10,9 +10,7 @@ BloodDonationEvent
 
 UserInfo
 	Guid			Id
-	varchar(32)		UserName
 	nvarchar(128)		FullName
-	List<Role>		Roles
 	List<InventoryItem>	Inventory
 	List<AchievementItem>	Achievements
 InventoryItem
