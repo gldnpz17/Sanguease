@@ -13,5 +13,9 @@ namespace DataAccessLibrary.Models
         [Required]
         [Column(TypeName = "NVARCHAR(128)")]
         public string Name { get; set; }
+
+        [Required]
+        [Column(TypeName = "NVARCHAR(512)")]
+        public string Description { get; set; }
     }
 }

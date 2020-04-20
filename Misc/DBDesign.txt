@@ -12,18 +12,14 @@ UserInfo
 	Guid			Id
 	varchar(32)		UserName
 	nvarchar(128)		FullName
-	List<Email>		Emails
 	List<Role>		Roles
 	List<InventoryItem>	Inventory
-Email
-	int 			Id
-	Guid			UserInfoId	(implied)
-	varchar(128)		Address
-Role
-	int			Id
-	Guid			UserInfoId	(implied)
-	varchar(32)		Name
+	List<AchievementItem>	Achievements
 InventoryItem
+	int 			Id
+	nvarchar(128)		Name
+	nvarchar(512)		Description
+AchievementItem
 	int 			Id
 	nvarchar(128)		Name
 	nvarchar(512)		Description

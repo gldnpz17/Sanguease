@@ -6,12 +6,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccessLibrary.Models
 {
-    class Role
+    class AchievementItem
     {
         public int Id { get; set; }
 
         [Required]
-        [Column(TypeName = "VARCHAR(32)")]
+        [Column(TypeName = "NVARCHAR(128)")]
         public string Name { get; set; }
+        [Required]
+        [Column(TypeName = "NVARCHAR(512)")]
+        public string Description { get; set; }
     }
 }
