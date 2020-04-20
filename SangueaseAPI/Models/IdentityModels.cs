@@ -21,7 +21,7 @@ namespace SangueaseAPI.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("ApplicationDBConnection", throwIfV1Schema: false)
         {
         }
         
