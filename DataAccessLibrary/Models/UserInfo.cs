@@ -13,7 +13,9 @@ namespace DataAccessLibrary.Models
         [Required]
         [Column(TypeName = "NVARCHAR(128)")]
         public string FullName { get; set; }
+
         public List<InventoryItem> Inventory { get; set; }
+
         public List<AchievementItem> Achievements { get; set; }
     }
 }
