@@ -7,12 +7,12 @@ BloodDonationEvent
 	double			Latitude
 	double			Longitude
 	List<InventoryItem>	Rewards
-
-UserInfo
+BloodDonorInfo
 	Guid			Id
 	nvarchar(128)		FullName
 	List<InventoryItem>	Inventory
 	List<AchievementItem>	Achievements
+	List<BloodDonationEvent>AttendedEvents
 InventoryItem
 	int 			Id
 	nvarchar(128)		Name
