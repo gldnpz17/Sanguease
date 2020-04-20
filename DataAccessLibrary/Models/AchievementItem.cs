@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccessLibrary.Models
 {
-    class AchievementItem
+    public class AchievementItem
     {
         public int Id { get; set; }
 

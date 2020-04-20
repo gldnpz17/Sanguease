@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccessLibrary.Models
 {
-    class InventoryItem
+    public class InventoryItem
     {
         public int Id { get; set; }
 

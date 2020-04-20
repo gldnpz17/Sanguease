@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccessLibrary.Models
 {
-    class BloodDonationEvent
+    public class BloodDonationEvent
     {
         public int Id { get; set; }
 

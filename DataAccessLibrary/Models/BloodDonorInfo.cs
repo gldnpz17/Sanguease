@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccessLibrary.Models
 {
-    class BloodDonorInfo
+    public class BloodDonorInfo
     {
         [Required]
         [Column(TypeName = "NVARCHAR(128)")]
