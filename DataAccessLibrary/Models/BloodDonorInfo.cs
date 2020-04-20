@@ -10,7 +10,7 @@ namespace DataAccessLibrary.Models
     {
         [Required]
         [Column(TypeName = "NVARCHAR(128)")]
-        public string Id { get; set; }
+        public string AuthId { get; set; }
 
         [Required]
         [Column(TypeName = "NVARCHAR(128)")]
