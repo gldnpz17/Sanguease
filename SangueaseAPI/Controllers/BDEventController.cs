@@ -77,11 +77,8 @@ namespace SangueaseAPI.Controllers
             {
                 using (var context = new SangueaseContext())
                 {
-                    //TO-DO : yeah, we haven't tested this yet. we mistakenly used the post method.
-                    value.Id = id;
-                    context.Entry(value);
-                    var entry = context.BloodDonationEvents.FirstOrDefault(b => b.Id == id);
-                    entry = value;
+                    context.BloodDonationEvents.Remove(context.BloodDonationEvents.FirstOrDefault(b => b.Id == id));
+                    context.BloodDonationEvents.Add(value);
 
                     context.SaveChanges();
                 }
