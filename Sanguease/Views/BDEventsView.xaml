@@ -1,0 +1,189 @@
+﻿<UserControl x:Class="Sanguease.Views.BDEventsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Sanguease.Views"
+             mc:Ignorable="d" FontSize="17"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <ContentControl Content="{Binding ChildView}" Panel.ZIndex="1"/>
+        
+        <Grid Margin="10" Panel.ZIndex="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Blood Donation Events" 
+                       FontWeight="Bold" FontSize="27"/>
+
+            <StackPanel Grid.Row="1" HorizontalAlignment="Right"
+                        Orientation="Horizontal">
+                <ComboBox Width="270" Margin="5">
+                    <ComboBoxItem IsSelected="True" IsEnabled="False"
+                                  HorizontalContentAlignment="Stretch">
+                        <Grid>
+                            <TextBlock Text="Sort By . . ." Foreground="Gray"
+                                       Panel.ZIndex="0"/>
+                        </Grid>
+                    </ComboBoxItem>
+                    <ComboBoxItem HorizontalContentAlignment="Stretch">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Command="{Binding SortByIdAscending}"
+                                    Panel.ZIndex="1" Opacity="0.001"
+                                    Margin="-3,-2" Grid.ColumnSpan="3"/>
+                            <TextBlock Grid.Column="0" Text="Sort By Id"
+                                       Panel.ZIndex="0"/>
+                            <TextBlock Grid.Column="2" Text="(Ascending)"
+                                       Panel.ZIndex="0"/>
+                        </Grid>
+                    </ComboBoxItem>
+                    <ComboBoxItem HorizontalContentAlignment="Stretch">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Command="{Binding SortByIdDescending}"
+                                    Panel.ZIndex="1" Opacity="0.001"
+                                    Margin="-3,-2" Grid.ColumnSpan="3"/>
+                            <TextBlock Grid.Column="0" Text="Sort By Id"
+                                       Panel.ZIndex="0"/>
+                            <TextBlock Grid.Column="2" Text="(Descending)"
+                                       Panel.ZIndex="0"/>
+                        </Grid>
+                    </ComboBoxItem>
+                    <ComboBoxItem HorizontalContentAlignment="Stretch">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Command="{Binding SortByNameAscending}"
+                                    Panel.ZIndex="1" Opacity="0.001"
+                                    Margin="-3,-2" Grid.ColumnSpan="3"/>
+                            <TextBlock Grid.Column="0" Text="Sort By Name"
+                                       Panel.ZIndex="0"/>
+                            <TextBlock Grid.Column="2" Text="(Ascending)"
+                                       Panel.ZIndex="0"/>
+                        </Grid>
+                    </ComboBoxItem>
+                    <ComboBoxItem HorizontalContentAlignment="Stretch">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Command="{Binding SortByNameDescending}"
+                                    Panel.ZIndex="1" Opacity="0.001"
+                                    Margin="-3,-2" Grid.ColumnSpan="3"/>
+                            <TextBlock Grid.Column="0" Text="Sort By Name"
+                                       Panel.ZIndex="0"/>
+                            <TextBlock Grid.Column="2" Text="(Descending)"
+                                       Panel.ZIndex="0"/>
+                        </Grid>
+                    </ComboBoxItem>
+                    <ComboBoxItem HorizontalContentAlignment="Stretch">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Command="{Binding SortByDateAscending}"
+                                    Panel.ZIndex="1" Opacity="0.001"
+                                    Margin="-3,-2" Grid.ColumnSpan="3"/>
+                            <TextBlock Grid.Column="0" Text="Sort By Date"
+                                       Panel.ZIndex="0"/>
+                            <TextBlock Grid.Column="2" Text="(Ascending)"
+                                       Panel.ZIndex="0"/>
+                        </Grid>
+                    </ComboBoxItem>
+                    <ComboBoxItem HorizontalContentAlignment="Stretch">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Command="{Binding SortByDateDescending}"
+                                    Panel.ZIndex="1" Opacity="0.001"
+                                    Margin="-3,-2" Grid.ColumnSpan="3"/>
+                            <TextBlock Grid.Column="0" Text="Sort By Date"
+                                       Panel.ZIndex="0"/>
+                            <TextBlock Grid.Column="2" Text="(Descending)"
+                                       Panel.ZIndex="0"/>
+                        </Grid>
+                    </ComboBoxItem>
+                </ComboBox>
+                <Button Content="Refresh" Padding="5,2" Margin="5"
+                        Width="140" Command="{Binding Refresh}"/>
+            </StackPanel>
+
+            <ListView Grid.Row="2" HorizontalAlignment="Stretch" 
+                      VerticalAlignment="Stretch" Margin="5"
+                      ItemsSource="{Binding BDEvents}"
+                      SelectedItem="{Binding SelectedEvent}">
+                <ListView.View>
+                    <GridView AllowsColumnReorder="True">
+                        <GridViewColumn Header="ID" Width="70"
+                                        DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="Event Name" Width="210"
+                                        DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Date" Width="210">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding StartDate, StringFormat=d}"/>
+                                        <TextBlock Text="-"/>
+                                        <TextBlock Text="{Binding EndDate, StringFormat=d}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Location" Width="210">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Latitude}"/>
+                                        <TextBlock Text=","/>
+                                        <TextBlock Text="{Binding Longitude}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Content="Details" Padding="5,2" 
+                        Width="140" Margin="5" Command="{Binding OpenDetails}"/>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal">
+                    <Button Content="Add" Padding="5,2" Width="140" Margin="5"
+                            Command="{Binding OpenAdd}"/>
+                    <Button Content="Edit" Padding="5,2" Width="140" Margin="5"
+                            Command="{Binding OpenEdit}"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,43 @@
+﻿<Window x:Class="Sanguease.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sanguease.Views"
+        mc:Ignorable="d" FontSize="17" WindowStartupLocation="CenterScreen"
+        Title="Sanguease" Height="550" Width="800">
+    <Grid>
+        <ContentControl Content="{Binding OverlayView}" Panel.ZIndex="1"/>
+        
+        <Grid Panel.ZIndex="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Sanguease" FontSize="31" 
+                       FontWeight="Bold" Margin="5,0"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="a simple app for sharing information on blood donation events"
+                           Margin="5,1"/>
+                <Rectangle Grid.Row="2" Fill="Black" Stroke="Black"
+                       Height="2" Grid.ColumnSpan="2"/>
+
+                <Button Grid.Column="1" Grid.Row="0" Content="About" Padding="5,2" 
+                        Margin="5" Command="{Binding About}"/>
+            </Grid>
+
+            <ContentControl Grid.Row="1" Content="{Binding ChildView}"/>
+        </Grid>
+    </Grid>
+</Window>
